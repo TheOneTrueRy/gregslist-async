@@ -1,4 +1,6 @@
 import { appState } from "../AppState.js"
+import { jobsService } from "../Services/JobsService.js"
+import { Pop } from "../Utils/Pop.js"
 import { setHTML } from "../Utils/Writer.js"
 
 
@@ -14,8 +16,12 @@ export class JobsController{
     appState.on('jobs', _drawJobs)
   }
 
-  getJobs(){
-
+  async  getJobs(){
+    try {
+      await jobsService.getJobs()
+    } catch (error) {
+      Pop.error(error)
+    }
   }
 
   show(){
