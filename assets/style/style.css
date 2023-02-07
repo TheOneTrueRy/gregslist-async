@@ -1,5 +1,33 @@
-/* BASIC STYLES HERE */
+/* SECTION Elements & Other */
+
 .car-img{
   height: 30vh;
   object-fit: cover;
+}
+
+/* SECTION Classes */
+
+.bg-pink{
+  background-color: #faa8cc;
+}
+
+.myBtn{
+  background-color: turquoise;
+  border: 2px solid black;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+  transition: 0.5s;
+}
+
+.myBtn:hover{
+  background-color: rgb(59, 200, 186);
+  transform: scale(1.05);
+}
+
+/* SECTION IDs */
+
+#ryslist{
+  color: white;
+  font-size: 2em;
+  text-shadow: 1px 1px 3px black;
 }
