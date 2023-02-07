@@ -17,14 +17,18 @@ function _drawCars() {
   let template = ''
   appState.cars.forEach(c => template += c.CarCard)
   setHTML('listings', template)
-  setHTML('modal-content', Car.CarForm({}))
-  setHTML('form-button', Car.FormButton())
 }
 
 export class CarsController {
   constructor () {
     this.getCars()
     appState.on('cars', _drawCars)
+  }
+
+  show(){
+    _drawCars()
+    setHTML('modal-content', Car.CarForm({}))
+    setHTML('form-button', Car.FormButton())
   }
 
   // ✅ READ || GET
