@@ -1,6 +1,7 @@
 import { appState } from "../AppState.js"
 import { Job } from "../Models/Job.js"
 import { jobsService } from "../Services/JobsService.js"
+import { getFormData } from "../Utils/FormHandler.js"
 import { Pop } from "../Utils/Pop.js"
 import { setHTML } from "../Utils/Writer.js"
 
@@ -14,6 +15,7 @@ function _drawJobs(){
 export class JobsController{
   constructor(){
     this.getJobs()
+    appState.on('jobs', this.show)
   }
 
   async  getJobs(){
@@ -42,6 +44,18 @@ export class JobsController{
     } catch (error) {
       console.log(error)
       Pop.error(error)
+    }
+  }
+
+  async  createJob(){
+    try {
+      event.preventDefault()
+      const form = event.target
+      const formData = getFormData(form)
+      await jobsService.createJob(formData)
+    } catch (error) {
+      Pop.error(error)
+      console.log(error);
     }
   }
 }

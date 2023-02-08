@@ -4,6 +4,12 @@ import { sandboxApi } from "./AxiosService.js"
 
 
 class JobsService{
+  async  createJob(formData) {
+    const res = await sandboxApi.post('/jobs', formData)
+    let actualJob = new Job(res.data)
+    appState.jobs.push(actualJob)
+    appState.emit('jobs')
+  }
 
   async getJobs(){
     const res = await sandboxApi.get('/jobs/')
