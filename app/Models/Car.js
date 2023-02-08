@@ -31,7 +31,7 @@ export class Car {
 
   static FormButton() {
     return `
-    <button onclick="app.carsController.drawForm()" class="myBtn ms-3 mb-2 rounded" data-bs-toggle="modal"
+    <button onclick="app.carsController.drawForm()" class="myBtn p-1 px-2 ms-3 mb-2 rounded" data-bs-toggle="modal"
       data-bs-target="#exampleModal">
       <i class="mdi mdi-plus"></i>
     </button>

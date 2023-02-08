@@ -22,7 +22,7 @@ function _drawCars() {
 export class CarsController {
   constructor () {
     this.getCars()
-    appState.on('cars', _drawCars)
+    appState.on('cars', this.show)
   }
 
   show(){

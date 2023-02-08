@@ -27,8 +27,8 @@ export class HousesController{
 
   show(){
     _drawHouses()
-    
-
+    setHTML('modal-content', House.HouseForm({}))
+    setHTML('form-button', House.FormButton())
   }
 
   drawForm(houseID){

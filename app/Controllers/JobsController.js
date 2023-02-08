@@ -1,4 +1,5 @@
 import { appState } from "../AppState.js"
+import { Job } from "../Models/Job.js"
 import { jobsService } from "../Services/JobsService.js"
 import { Pop } from "../Utils/Pop.js"
 import { setHTML } from "../Utils/Writer.js"
@@ -26,16 +27,18 @@ export class JobsController{
 
   show(){
     _drawJobs()
-
+    setHTML('modal-content', Job.JobForm({}))
+    setHTML('form-button', Job.FormButton())
   }
 
   drawForm(jobID){
     try {
       if(jobID){
         let job = appState.jobs.find(j => j.id == jobID)
-        
+        setHTML('modal-content', Job.JobForm(job))
+      }else{
+        setHTML('modal-content', Job.JobForm())
       }
-      
     } catch (error) {
       console.log(error)
       Pop.error(error)
