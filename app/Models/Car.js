@@ -39,7 +39,7 @@ export class Car {
   }
 
   static CarForm(editable) {
-    if (!editable.id) {
+    if (!editable) {
       editable = new Car({
         make: '',
         model: '',

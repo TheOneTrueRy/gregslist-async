@@ -13,18 +13,19 @@ function _drawJobs(){
 export class JobsController{
   constructor(){
     this.getJobs()
-    appState.on('jobs', _drawJobs)
   }
 
   async  getJobs(){
     try {
       await jobsService.getJobs()
     } catch (error) {
+      console.log(error)
       Pop.error(error)
     }
   }
 
   show(){
+    _drawJobs()
 
   }
 }

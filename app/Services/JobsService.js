@@ -6,7 +6,7 @@ import { sandboxApi } from "./AxiosService.js"
 class JobsService{
 
   async getJobs(){
-    const res = sandboxApi.get('/jobs/')
+    const res = await sandboxApi.get('/jobs/')
     const apiJobs = res.data.map(j => new Job(j))
     appState.jobs = apiJobs
   }

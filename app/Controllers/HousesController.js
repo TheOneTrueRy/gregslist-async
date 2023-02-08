@@ -13,18 +13,20 @@ function _drawHouses(){
 export class HousesController{
   constructor(){
     this.getHouses()
-    appState.on('houses', _drawHouses)
   }
 
   async  getHouses(){
     try {
       await housesService.getHouses()
     } catch (error) {
+      console.log(error)
       Pop.error(error)
     }
   }
 
   show(){
+    _drawHouses()
+    
 
   }
 }

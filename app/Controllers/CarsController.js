@@ -76,7 +76,7 @@ export class CarsController {
         setHTML('modal-content', Car.CarForm(car))
       }
       else {
-        setHTML('modal-content', Car.CarForm({}))
+        setHTML('modal-content', Car.CarForm())
       }
     } catch (error) {
       console.error(error)
