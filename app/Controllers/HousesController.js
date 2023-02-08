@@ -53,9 +53,32 @@ export class HousesController{
       const form = event.target
       const formData = getFormData(form)
       await housesService.createHouse(formData)
+      // @ts-ignore
+      form.reset()
     } catch (error) {
       Pop.error(error)
       console.log(error)
+    }
+  }
+
+  async removeHouse(houseID){
+    try {
+      await housesService.removeHouse(houseID)
+    } catch (error) {
+      console.log(error)
+      Pop.error(error)
+    }
+  }
+
+  async editHouse(houseID){
+    try {
+      event.preventDefault()
+      const form = event.target
+      const formData = getFormData(form)
+      await housesService.editHouse(formData, houseID)
+    } catch (error) {
+      console.log(error)
+      Pop.error(error)
     }
   }
 }

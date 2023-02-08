@@ -46,7 +46,7 @@ export class Job{
         <h1 class="modal-title fs-5" id="exampleModalLabel">List a Job!</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form ${editable.id ? `onsubmit="app.carsController.editCar('${editable.id}')"` : 'onsubmit="app.carsController.createCar()"'}>
+      <form ${editable.id ? `onsubmit="app.jobsController.editJob('${editable.id}')"` : 'onsubmit="app.jobsController.createJob()"'}>
         <div class="modal-body">
           <div class="mb-3">
             <label for="company" class="form-label">company</label>
@@ -74,7 +74,7 @@ export class Job{
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
         </div>
       </form>
     </div>

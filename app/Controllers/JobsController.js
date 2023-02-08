@@ -53,9 +53,32 @@ export class JobsController{
       const form = event.target
       const formData = getFormData(form)
       await jobsService.createJob(formData)
+      // @ts-ignore
+      form.reset()
     } catch (error) {
       Pop.error(error)
       console.log(error);
+    }
+  }
+
+  async removeJob(jobID){
+    try {
+      await jobsService.removeJob(jobID)
+    } catch (error) {
+      console.log(error)
+      Pop.error(error)
+    }
+  }
+
+  async editJob(jobID){
+    try {
+      event.preventDefault()
+      const form = event.target
+      const formData = getFormData(form)
+      await jobsService.editJob(formData, jobID)
+    } catch (error) {
+      console.log(error)
+      Pop.error(error)
     }
   }
 }
