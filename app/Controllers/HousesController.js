@@ -1,4 +1,5 @@
 import { appState } from "../AppState.js"
+import { House } from "../Models/House.js"
 import { housesService } from "../Services/HousesService.js"
 import { Pop } from "../Utils/Pop.js"
 import { setHTML } from "../Utils/Writer.js"
@@ -28,5 +29,19 @@ export class HousesController{
     _drawHouses()
     
 
+  }
+
+  drawForm(houseID){
+    try {
+      if(houseID){
+        let house = appState.houses.find(h => h.id == houseID)
+        setHTML('modal-content', House.HouseForm(house))
+      }else{
+        setHTML('modal-content', House.HouseForm())
+      }
+    } catch (error) {
+      console.log(error)
+      Pop.error(error)
+    }
   }
 }

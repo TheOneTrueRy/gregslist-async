@@ -28,4 +28,17 @@ export class JobsController{
     _drawJobs()
 
   }
+
+  drawForm(jobID){
+    try {
+      if(jobID){
+        let job = appState.jobs.find(j => j.id == jobID)
+        
+      }
+      
+    } catch (error) {
+      console.log(error)
+      Pop.error(error)
+    }
+  }
 }
